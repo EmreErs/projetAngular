@@ -1,0 +1,14 @@
+<h3>Connection</h3>
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="seConnecter()">
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+        </mat-form-field>
+        
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>

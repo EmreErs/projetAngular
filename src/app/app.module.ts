@@ -14,21 +14,26 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentsDetailsComponent } from './assignments/assignments-details/assignments-details.component';
 import { RenduDirective } from './shared/rendu.directive';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { AuthGuard } from './shared/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { ConnectedComponent } from './connected/connected.component';
 
 const routes:Routes = [
   {path: '', component: AssignmentsComponent},
   {path: 'home', component: AssignmentsComponent},
   {path: 'add', component: AddAssignmentComponent},
   {path: 'assignment/:id', component: AssignmentsDetailsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'connected', component: ConnectedComponent},
   {
     path: 'assignment/:id/edit',
     component: EditAssignmentComponent,
@@ -42,6 +47,8 @@ const routes:Routes = [
     RenduDirective,
     AddAssignmentComponent,
     EditAssignmentComponent,
+    LoginComponent,
+    ConnectedComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +57,9 @@ const routes:Routes = [
     MatInputModule, MatFormFieldModule,
     MatDatepickerModule, MatNativeDateModule, MatListModule,
     MatCardModule, MatCheckboxModule, MatSlideToggleModule,
-    FormsModule,
+    FormsModule, HttpClientModule, ReactiveFormsModule,
     RouterModule.forRoot(routes)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AssignmentsService } from './shared/assignments.service';
 import { AuthService } from './shared/auth.service';
 
 @Component({
@@ -10,15 +11,20 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   title = 'Application de gestion des assignments !!!';
 
-  constructor(private authService:AuthService, private router:Router) {}
+  constructor(private authService:AuthService, private router:Router, private assignmentService: AssignmentsService) {}
 
   login() {
     if(!this.authService.loggedIn) {
-      this.authService.logIn();
+      this.authService.authentifier;
     } else {
       this.authService.logOut();
       this.router.navigate(['/home']);
 
     }
+  }
+
+  initialiserLaBaseAvecDoneesDeTest(){
+    this.assignmentService.peuplerBD();
+    console.log('#### initialiserLaBaseAvecDoneesDeTest : Donnee Ajoutees ! ####');
   }
 }
