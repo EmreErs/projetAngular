@@ -19,9 +19,9 @@ export class AssignmentsComponent implements OnInit {
   ngOnInit(): void {
     this.assignmentsService
       .getAssignments()
-      .subscribe((tableauDesAssignmentsObservable) => {
-        this.assignments = tableauDesAssignmentsObservable;
-      });
+      .subscribe((assignments) => 
+        this.assignments = assignments
+      );
   }
 
   onAssignmentClicke(assignment: Assignment) {
